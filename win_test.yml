@@ -1,0 +1,10 @@
+---
+- name: Create file with content
+  hosts: windows
+  gather_facts: no
+
+  tasks:
+    - name: Create file from AWX
+      ansible.windows.win_copy:
+        content: "Hello from AWX and Ansible!"
+        dest: C:\Users\Andrew.emil:\Desktop\awx_test.txt
