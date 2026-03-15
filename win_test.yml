@@ -1,6 +1,6 @@
 ---
 - name: Create file with content
-  hosts: windows
+  hosts: all
   gather_facts: no
 
   tasks:
