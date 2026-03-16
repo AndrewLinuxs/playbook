@@ -4,11 +4,7 @@
   gather_facts: no
 
   tasks:
-    - name: Check for available Windows updates
-      ansible.windows.win_updates:
-        state: searched
-      register: update_result
-
-    - name: Show available updates
-      debug:
-        var: update_result
+    - name: Create test file
+      ansible.windows.win_copy:
+        content: "File created from AWX"
+        dest: "{{ ansible_env.USERPROFILE }}\\Desktop\\awx_file.txt"
