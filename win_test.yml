@@ -9,8 +9,18 @@
         content: "File created from AWX"
         dest: "{{ ansible_env.USERPROFILE }}\\Desktop\\awx_file.txt"
 
+    - name: Create temp directory
+      ansible.windows.win_file:
+        path: C:\temp
+        state: directory
+
+    - name: Download Notepad++
+      ansible.windows.win_get_url:
+        url: https://github.com/notepad-plus-plus/notepad-plus-plus/releases/latest/download/npp.8.6.Installer.x64.exe
+        dest: C:\temp\npp.exe
+
     - name: Install Notepad++
       ansible.windows.win_package:
-        path: https://github.com/notepad-plus-plus/notepad-plus-plus/releases/latest/download/npp.8.6.Installer.x64.exe
+        path: C:\temp\npp.exe
         arguments: /S
         state: present
